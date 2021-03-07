@@ -1,0 +1,185 @@
+<html>
+ <head>
+    <title >
+      Страница с примером кода JavaScript
+    </title>
+
+    <script>
+
+        // Выводит все цифры от 1 до n
+        n = 15;
+        function myFunction(n) {
+            if (n === 1) return 1;
+            return myFunction(n - 1) + " " + n;
+        }
+        console.log(myFunction(n));
+
+        // Свой класс
+        var FIO = {
+            FirstName: "Maksim",
+            LastName: "Kravtsov"
+        }
+        // Функция своего класса (выодит его компоненты). Здесь баг, последней итерацией выводит сам метод
+        FIO.ConsoleFIO = function () {
+            var result = '';
+            for (var item in this) {
+                result += this[item] + " ";
+            }
+            return result;
+        }
+        console.log(FIO.ConsoleFIO());
+
+        // выводит индекс начала вхождения строки б в строку а
+        function testStr(a, b) {
+            return a.indexOf(b, 0);
+        }
+        console.log(testStr('This is a test string', 'test'));
+
+        //  Внутри функции видит локальные переменные, а не глобальные
+        a = [1,2,3];
+        b = [2,3,4];
+        // Функция сложения всех элементов 2х массивов
+        function testArr(a, b) {
+            let sum = 0;
+            let c = a.concat(b);
+
+            // Хороший способ
+            c.forEach(element => {
+                sum += element;
+            });
+
+            // ---------НЕПРАВИЛЬНО----------
+            /*
+            for (var item in c) {
+                sum += Number(item); // Выводит не элемент массива, а номер элемента в массиве!!!
+            }
+            */
+
+            return sum;
+        }
+        console.log(testArr([1,2,3],[2,3,4]));
+
+        // Функция получения из 2х строк массива, результат общая строка в обратном порядкеы
+        str1 = 1234;
+        str2 = 2345;
+        function TestArray(a,b) {
+            let arr = String(a).split('').concat(String(b).split(''));
+            arr = arr.reverse();
+            return arr.join('').concat('Иванов');
+        }
+        //alert(TestArray(str1, str2));
+
+        // Работа с датами
+        function CompareDate(a, b) {
+            let dateA = new Date(a);
+            let dateB = new Date(b);
+
+            let mostDate = +dateA >= +dateB ? dateA : dateB;
+            let mostDateString = mostDate.toLocaleString('ru', {weekday: 'long'});
+
+            return  mostDateString.charAt(0).toUpperCase() + mostDateString.slice(1);
+        }
+        a = '19 October 1909 10:27';
+        b = '28 March 1909 00:59'
+        document.writeln(CompareDate(a,b));
+
+        // -------------Класс Math--------------------
+        // Тангенс
+        function GetTg (grad) {
+            let rad = grad*Math.PI/180;
+            let tg = Math.tan(rad);
+            return tg;
+        }
+        document.writeln( GetTg(348) );
+
+        // Площадь треугольника
+        function GetArea(a, b, c) {
+            let sin = Math.sin(c * Math.PI / 180);
+            let area = a * b * sin * 0.5;
+            return area;
+        }
+        document.writeln( GetArea(2, 10, 16) );
+
+        // Минимальное - максимальное
+        function GetMaxMin(a, b, c, d) {
+            let max = Math.max(a, b, c, d);
+            let min = Math.min(a, b, c, d);
+            let result = Math.floor(max/min);
+            return result;
+        }
+        document.writeln( GetMaxMin(1,4,8,8) );
+
+        // Возведение в степень
+        function GetPow(a, b) {
+            return Math.pow(a, b);
+        }
+        document.writeln( GetPow(5, 1) );
+
+        // Вычисление факториала
+        function testFactorial(inputData) {
+
+            if (inputData == 0) {return 1}
+            if (inputData < 0)                             // Проверяем - положительное ли число
+                throw "Число не должно быть меньше нуля";    // Если отрицательное - "бросаем" исключение
+
+            return (inputData - 1)
+                ? (inputData * testFactorial(inputData - 1))
+                : inputData;
+        }
+
+        // Отлов ошибок
+        try {
+            document.writeln( testFactorial(-1) );
+        } catch(ex) {
+            document.writeln( ex );
+        }
+
+        // Класс Error
+        var error = new Error("MISTAKE");
+        try {  
+           throw error;
+        } catch(e) {
+            document.writeln( e.name + ': ' + e.message );
+        }
+
+        // Функция - конструктор
+        function MyClass(name) {
+            this.Name = name;
+            this.HasPhone = false;
+        }
+        var first = new MyClass('Jack');
+        var second = new MyClass('Jony');
+        document.writeln(first.Name + ' ' + second.Name);
+
+
+        // Обработка ошибок
+        function func() {
+            let error = new Error('EvalError');
+            error.name = 'EvalError';
+            throw error;
+        }
+        function testErrorFunc(a, func) {         
+            let x;
+            try {
+                x = func(a);
+            } catch(e) {
+                x = e.name;
+            }
+            return x;
+        }
+        document.writeln(testErrorFunc(9, func));
+
+        // Регулярные выражения
+        function testRegExp (s, sub_s) {
+            let regExp = new RegExp(sub_s, "g");
+            let str = s.match(regExp).join(', ');
+            return str;
+        }
+        document.writeln(testRegExp("Extremitiyasiifbrieakfaistagreement", "i"));
+
+    </script>
+ </head>
+
+ <body>
+ </body>
+</html>
