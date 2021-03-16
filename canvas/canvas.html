@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Canvas</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <canvas id='canvas'></canvas>
+        <script>
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+            context.strokeStyle = "rgba(255, 0, 0, 1)"; // Цвет обводки
+            context.lineWidth = 20; // Ширина линии
+            context.fillStyle = '#00FF00'; // Цвет заливки
+            context.strokeRect(70, 20, 220, 100);
+        </script>
+    </body>
+</html>
