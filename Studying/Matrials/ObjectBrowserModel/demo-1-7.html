@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Манипуляции с окнами</title>
+<meta charset="utf-8">
+<style>
+#demoLinks a { 
+	display: block; 
+	color: blue;}
+</style>
+
+<script>
+var w;
+function winOpen( ){
+	w = window.open( '', '', 'width=300, height=300, top=300, left=300' ); 
+	w.focus( );
+}
+
+function demoMoveTo( ){
+	w.focus( );
+	w.moveTo( 100, 100 );
+}
+
+function demoResizeTo( ){
+	w.focus( );
+	w.resizeTo( 100, 100 );
+}
+
+function demoMoveBy( ){
+	w.focus( );
+	w.moveBy( 20, 20 );
+}
+
+function demoResizeBy( ){
+	w.focus( );
+	w.resizeBy( 10, 10 );
+}
+</script>
+</head>
+
+<body>
+
+<h1>Объект</h1>
+
+<div id="demoLinks">
+	<a href="javascript: winOpen( )">Open window</a><br>
+	<a href="javascript: demoMoveTo( )">MoveTo</a><br>
+	<a href="javascript: demoMoveBy( )">MoveBy</a><br>
+	<a href="javascript: demoResizeTo( )">ResizeTo</a><br>
+	<a href="javascript: demoResizeBy( )">ResizeBy</a>
+</div>
+	
+</body>
+</html>

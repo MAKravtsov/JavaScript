@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+	<head>
+		<meta charset="utf-8">
+		<title>Запись в документ</title>
+		<style>
+			div a {
+				display: block;
+				background: #cfc;
+				padding: 10px;
+				color: #00f;}
+
+			p	{
+				background: #fc3;}
+		</style>
+
+		<script>
+			// добавим на страницу хорошего настроения
+			document.write('Привет');
+
+			function demoWrite(){	
+				// перезапишем содержимое страницы
+				document.write('Я все стер');
+				// document.close();
+			}
+
+			// дата последнего изм документа
+			console.log(document.lastModified);
+
+			// заголовок страницы
+			console.log(document.title);
+			document.title = 'ASASA';
+
+			// Домен
+			console.log(document.domain);
+
+		</script>
+	</head>
+
+	<body>
+
+		<h1>Запись в документ</h1>
+
+		<div>
+			<a href="javascript: demoWrite();">Переписываем документ</a>	
+		</div>
+
+	</body>
+</html>

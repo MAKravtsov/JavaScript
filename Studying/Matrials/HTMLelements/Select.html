@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>HTMLSelectElement</title>
+<style>
+select {
+	margin-bottom: 8px;}
+	
+fieldset {
+	width: 350px;}
+</style>
+
+</head>
+
+<body>
+
+<form name='myForm'>
+ <fieldset>
+ <legend>Фрукты:</legend>
+ 
+ <select name='fruits' id='mySelect' onchange="foo()">
+	<option value='orange'>Апельсин
+	<option value='apple'>Яблоко
+	<option value='pear' selected>Груша
+ </select>
+ 
+ </fieldset> 
+</form>
+
+<script>
+	var select = document.getElementsByName('fruits')[0];
+	// Пример-1, работа с option
+	console.log(select.options[0].value);
+	console.log(select.options[0].text);
+
+	// Пример-2, св-во selectedIndex
+	function foo() {
+		let index = select.selectedIndex;
+		console.log(select.options[index]);
+	}
+
+</script>
+
+</body>
+</html>

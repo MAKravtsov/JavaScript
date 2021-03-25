@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+<head>
+	<meta charset="utf-8">
+	<title>Новое окно</title>
+	<style>
+	#demoLinks a { 
+		display: block;
+		color: blue;}
+	</style>
+
+	<script>
+
+		let isOpen = false;
+		function demoOpen(prop){
+
+			// варинат 1 - наполним новое окно содержимым из другого документа
+			
+			// Второй параметр нужен для того, чтобы
+			// не создавалось куча окон одинаковых
+			/*
+			let win = open('http://ya.ru', 'bobik', prop);
+			*/
+			
+			// вариант 2 - наполним новое окно методом document.write()
+			let win = open('', 'bobik', prop);
+			win.document.write('<div><h1>Hello</h1></div>');
+			win.document.write('<p>Hello');
+
+			// Закрываем поток, при повторном нажатии
+			// Не добавляет заново
+			win.document.close();
+			
+		}
+
+	</script>
+</head>
+
+<body>
+
+	<h1>Объект </h1>
+
+	<div id="demoLinks">
+		<a href="javascript: demoOpen();">new window</a><br>
+		<a href="javascript: demoOpen('width=300, height=300');">width, height</a><br>
+		<a href="javascript: demoOpen('width=300, height=300, menubar=1');">menubar</a><br>
+		<a href="javascript: demoOpen('width=300, height=300, top=200, left=200');">top, left</a>
+	</div>
+
+</body>
+</html>

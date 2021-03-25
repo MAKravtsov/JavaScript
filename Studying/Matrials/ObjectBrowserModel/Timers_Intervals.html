@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+	<head>
+		<meta charset="utf-8">
+		<title>Таймеры</title>
+
+		<style>
+			#demoLinks a {
+				display: block;
+				background: #cfc;
+				padding: 8px;
+				color: #00f;
+				border-radius: 10px;}
+		</style>
+
+		<script>
+			// только при тестировании, УЖАСНО!!!
+			// распорсивание строки в команду
+			// страдает безопасность
+			/*
+			var x = "alert(1)"
+			eval(x);
+			setTimeout('alert(1)', 1000); // Передать строкy - Колхоз
+			*/
+
+			// Функция без скобок - ссылка на функцию
+			/*
+			setTimeout(foo, 1000);
+			function foo() {
+				alert(1);
+			}
+			*/
+
+			// Функция оболочка - анонимная функция
+			/*
+			setTimeout(() => foo('John'), 1000);
+			function foo(name) {
+				alert(name);
+			}
+			*/
+
+			//Методы setTimeout и clearTimeout
+			var timer;
+			function demoSetTimeout(){
+				timer = setTimeout("alert('Метод setTimeout')", 2000);
+			}
+
+			function demoClearTimeout() {
+				clearTimeout(timer);
+			}
+
+			//Методы setInterval и clearInterval
+			var interval;
+			function demoSetInterval(){
+				interval = setInterval("alert('Метод setInterval')", 2000);
+			}
+
+			function demoClearInterval() {
+				clearInterval(interval);
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<h1>Таймеры</h1>
+
+		<div id="demoLinks">
+			<a href="javascript: demoSetTimeout();">setTimeout</a><br>
+			<a href="javascript: demoClearTimeout();">clearTimeout</a><br><br>
+
+			<a href="javascript: demoSetInterval();">setInterval</a><br>
+			<a href="javascript: demoClearInterval();">clearInterval</a>
+		</div>
+
+	</body>
+</html>

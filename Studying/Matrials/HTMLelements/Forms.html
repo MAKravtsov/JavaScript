@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+	<meta charset="utf-8">
+	<title>HTMLFormElement</title>
+	<style>
+		input {
+			margin-bottom: 8px;}
+
+		div {
+			width: 350px;
+			margin-bottom: 15px;
+			border: 2px solid #aaa;
+			padding: .5em;}
+	</style>
+
+</head>
+
+<body>
+
+	<!-- Пример-1, отправка формы без щелчка на кнопке 'отправить' -->
+	<form action='http://ya.ru/yandsearch'>
+		<div>
+			<p>Метод submit( )</p>
+			<input onblur="test(this)" type='text' name='text'> Любимый напиток<br>
+			<input type='submit' value='Отправить форму'>
+		</div> 
+	</form>
+
+	<!-- Пример-2, сброс данных формы после того, как пользователь убрал фокус с элемента -->
+	<form name='search'>
+		<div>
+			<p>Метод reset( )</p>
+			<input type='text' name='user_name'> Ваше имя<br>
+			<input type='text' name='user_email' onblur="this.form.reset()"> Ваш e-mail<br>
+			<input type='reset' value='Сбросить форму'>
+		</div>
+	</form>
+
+	<!-- ВАЖНО! Скрипт должен быть ПОСЛЕ создания форм -->
+	<script>
+
+		// кол-во элементов form
+		// HTMLCollection
+		var a = document.forms;
+		console.log(a);
+		console.log(a.length);
+		console.log(a[1].length);
+
+		function test(el) {
+			console.log(el);
+		}
+
+		// кол-во элементов внутри первой form
+
+
+	</script>
+
+</body>
+</html>

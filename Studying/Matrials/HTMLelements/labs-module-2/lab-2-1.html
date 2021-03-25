@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>Проверка формы перед отправкой</title>
+<style>
+form div input { 
+	border: solid #999 2px;
+	margin-bottom: 5px;}
+
+a	{
+	background: silver;
+	color: black;
+	border: 3px solid silver;
+	text-decoration: none;
+	font-weight: bold}
+
+div.button {
+	margin-top: 10px}
+</style>
+<script>
+/*
+Создайте и опишите функцию checkForm(), которая должна вызываться перед отправкой формы.
+В функции необходимо проверить, все ли поля заполнены.
+Если все поля заполнены, то отправить форму.
+Если хотя бы одно поле не заполнено:
+- выдать alert() с предупреждением
+- изменить цвет рамки пустого поля на красный
+- данные не отправлять!
+*/
+
+function checkForm(){
+	let form = document.getElementById('myForm');
+	let inputs = form.getElementsByTagName('input');
+	
+	// Запрещенные слова
+	let ptrn = /cat|dog|^$/i;
+	let goodSubmit = true;
+	for(let i = 0; i < inputs.length; i++) {
+		let p = inputs[i];
+		if(ptrn.test(p.value)) {
+			p.style.borderColor = '#f00';
+			goodSubmit = false;
+		} else {
+			p.style.borderColor = '#090';
+		}
+	}
+	
+	if(goodSubmit) {
+		form.submit();
+		alert('Данные успешно отправлены');
+	} 
+
+}
+
+</script>
+</head>
+
+<body>
+<h1>Проверка формы перед отправкой</h1>
+
+<form id="myForm" name="myForm" action="http://ya.ru/yandsearch">
+
+<fieldset>
+	<legend>Форма</legend>
+	<div>
+		<label for="txt1">Поле 1</label>
+		<input type="text" name="text" id="txt1">
+	</div>
+	<div>
+		<label for="txt2">Поле 2</label>
+		<input type="text" name="text2" id="txt2">
+	</div>
+	<div>
+		<label for="txt3">Поле 3</label>
+		<input type="text" name="text3" id="txt3">
+	</div>
+	<div>
+		<label for="txt4">Поле 4</label>
+		<input type="text" name="text4" id="txt4">
+	</div>
+	<div>
+		<label for="txt5">Поле 5</label>
+		<input type="text" name="text5" id="txt5">
+	</div>
+	<div class="button">
+		<a href="javascript: checkForm();">Передать форму</a>
+	</div>
+</fieldset>
+
+</form>
+</body>
+</html>

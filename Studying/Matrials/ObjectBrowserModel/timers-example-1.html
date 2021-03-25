@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+<head>
+	<meta charset="utf-8">
+	<title>Таймеры. Пример использования - 1</title>
+	<style>
+	#d	{
+		width: 100px;
+		height: 100px;
+		background: #fc3;}
+
+	#demoLinks a {
+		display: block;
+		background: #cfc;
+		padding: 8px;
+		color: #00f;
+		border-radius: 10px;}
+	</style>
+</head>
+
+<body>
+
+	<div id='d'>
+	</div>
+
+	<h1>Исчезающий div</h1>
+
+	<div id="demoLinks">
+		<a href="javascript: foo();">Исчезающий div</a>
+	</div>
+
+	<script>
+		// получаем ссылку на элемент по id
+		var d = document.getElementById('d');
+		console.log(d);
+
+		// создаем счетчик
+		var x = 0;
+
+		function foo() {
+			
+			x++;
+			if(x <= 100) {
+				d.style.opacity = (1 - x/100);
+				// рекурсивно вызываем фцнкцию foo() через каждые 0.025 сек
+				setTimeout(foo, 25);
+			} else {
+				d.style.display = 'none';
+				alert('Блок исчез');
+			}
+
+		}
+	</script>
+
+</body>
+</html>

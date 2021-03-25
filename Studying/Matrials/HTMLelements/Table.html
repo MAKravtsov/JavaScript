@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>Генерация таблицы</title>
+<style>
+thead td {
+	background: #69c;}
+
+tfoot td {
+	background: #fc0;}
+
+caption {
+	white-space: nowrap;}
+
+td {
+	padding: 15px; 
+	border: 1px solid #369;}
+</style>
+
+<script>
+//Функция должна создать таблицу
+
+function foo(tbl){
+	if(HasTable(tbl)) { return; }
+	createSection(tbl.createTBody(), 8);
+	createSection(tbl.createTHead(), 2);
+	createSection(tbl.createTFoot(), 1);
+	
+}
+
+function HasTable(tbl) {
+	return tbl.tBodies.length !== 0;
+}
+
+function createSection(elem, cnt) {
+	let tr, td;
+	for(let i = 0; i < cnt; i++) {
+		tr = elem.insertRow(i);
+		for(let j = 0; j < 5; j++) {
+			td = tr.insertCell(j);
+			td.textContent = `${i + 1} - ${j + 1}`;
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+	<h1 id='h1'>ONE <i>ii</i></h1>
+	<h2 id='h2'>TWO</h2>
+
+	<script>
+		// Работа с содержимым
+		console.log(h1.textContent);
+		console.log(h1.innerHTML);
+	</script>
+
+	<table onclick='foo(this);'>
+	<caption>Нажми и наполни таблицу</caption>
+
+</table>
+
+</body>
+</html>

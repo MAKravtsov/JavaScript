@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+<head>
+<title>Цифровые часы</title>
+<meta charset="utf-8">
+</head>
+
+<body>
+
+<h1>Часики</h1>
+
+<h2>Результат - '01 : 27 : 45'</h2>
+
+<script>
+var h1 = document.getElementsByTagName('h1')[0];
+
+function clock(){
+
+ var thetime = new Date();
+ 
+ h1.innerHTML = thetime;
+
+};
+clock();
+</script>
+
+</body>
+</html>

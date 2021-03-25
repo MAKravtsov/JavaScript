@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>Drag’n’Drop</title>
+<style>
+#ball {
+	width: 40px;
+	height: 40px;
+	background: red;
+	border-radius: 50%;}
+
+</style>
+
+</head>
+
+<body> 
+
+<div id='ball'></div>
+
+<script>
+
+/*
+Основной алгоритм Drag’n’Drop выглядит так:
+
+Отслеживаем нажатие кнопки мыши на переносимом элементе при помощи события mousedown.
+При нажатии – подготовить элемент к перемещению.
+Далее отслеживаем движение мыши через mousemove и передвигаем переносимый элемент на новые координаты путём смены left/top и position:absolute.
+При отпускании кнопки мыши, то есть наступлении события mouseup – остановить перенос элемента и произвести все действия, связанные с окончанием Drag’n’Drop.
+*/
+
+var ball = document.getElementById('ball');
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

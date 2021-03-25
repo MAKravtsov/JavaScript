@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+	<head>
+		<meta charset="utf-8">
+		<title>Объект Window, диалоговые окна</title>
+
+		<script>
+		// Вот он зачем, нельзя создавать переменные без ключевго
+		// слова var и let
+		'use strict';
+		// *************Диалоговые окна(для тестирования)*******
+			/*
+			alert( 'Привет' );
+			*/
+
+			// confirm
+			/*
+			var x = confirm( 'Привет' );
+			console.log( x );
+			*/
+
+			// prompt
+			/*
+			var y = prompt( 'Введите имя', 'John' );
+			console.log( y );
+			*/
+
+			/* утренний опрос
+			var food = confirm( 'Кушали утром?' );
+			if( food ) {
+				var x = prompt(' А что кушали? ');
+					if( x ) alert( 'Мы тоже любим кушать ' + x );
+					else alert( 'Да Вы шпион...' );
+			} else alert( 'Утром надо кушать' );
+			*/
+
+		// *********window************
+			console.log('Ширина: ' + innerWidth);
+
+			var a = 10;
+			window.y = 10; // Можно так, но не обязательно
+			// z = 10; Ошибка 'use strict'
+
+			// Печать
+			print();
+
+			// Остановка страницы
+			stop();
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<h1>Объект Window, диалоговые окна</h1>
+
+	</body>
+</html>

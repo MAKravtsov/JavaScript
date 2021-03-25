@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>Cодержание внутреннего окна</title>
+<style>
+html {
+	background: #ffc;
+	font: 16px Arial, sans-serif;}
+
+body {
+	margin: 0;}
+
+p	{margin: 0;
+	padding: 20px;
+	text-align: center;}
+</style>
+
+<script>
+/* Не дает воспроизводить frame в браузере
+	(плохо - лучше на сервере) */
+if(top.frames.length > 0) {
+	stop();
+}
+
+</script>
+</head>
+
+<body>
+	<p>Я — внутренний документ</p>
+</body>
+</html>

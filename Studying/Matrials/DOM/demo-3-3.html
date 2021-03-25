@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+<meta charset='utf-8'>
+<title>Создание формы методами DOM</title>
+<style>
+*	{
+	font-size: 1rem; 
+	font-family: Arial, sans-serif;}
+
+h1	{
+	padding: 10px;
+	font-size: 1.4rem;
+	background: #9f9;
+	text-align: center;
+	margin-bottom: 10px;}
+
+form {
+	float: left;}
+
+input[type='text'] {
+	margin-bottom: 10px;
+	width: 190px;
+	padding: 5px;}
+</style>
+</head>
+
+<body>
+
+<h1 id='h1'>Создание формы методами DOM (click me)</h1>
+
+<script>
+function cL(data) {
+	return console.log(data);}
+
+// 1. Получаю ссылку на заголовок H1
+var h1 = document.querySelector('body #h1');
+cL(h1.textContent);
+	
+// 2. Создаю ф-цию создающую ФОРМУ и вызываю ее
+h1.onclick = function(){
+	
+	// 3. Запрет повторного вызова ф-ции
+	
+	
+	// 4. Создаю форму
+	
+	
+	// 5. Добавляю атрибуты форме
+	
+	
+	// 6. Создаю текстовое поле с атрибутами
+	
+	
+	// 7. создаю текст подсказки после поля
+	
+	
+	// 8. Создаю элемент <br>
+	
+	
+	// 9. Создаю кнопку отправки запроса
+	
+	
+	// 10. Создаю элемент fieldset
+	
+	
+	// 11. Создаю элемент legend и наполняю его
+	
+	
+	//12. Добавляю в fieldset детей в нужном порядке
+	
+	
+	//13. Добавляю fieldset в форму
+	
+	
+	//14. Добавляю форму в д-т
+	
+	
+};
+</script>
+
+</body>
+</html>

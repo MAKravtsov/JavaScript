@@ -1,0 +1,38 @@
+﻿<!DOCTYPE HTML>
+<html lang='ru'>
+	<head>
+		<meta charset="utf-8">
+		<title>Объект Location</title>
+		<style>
+		div a { 
+			display: block; 
+			color: blue }
+		</style>
+
+		<script>
+			function demoReload( ){
+				location.reload( );
+			}
+
+			function demoAssign( ){
+				location.assign( "http://ya.ru" );
+			}
+
+			function demoReplace( ){
+				location.replace( "http://ya.ru" );
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<h1>Объект Location</h1>
+
+		<div>
+			<a href="javascript: demoReload();">Reload</a><br>
+			<a href="javascript: demoAssign();">Assign</a><br>
+			<a href="javascript: demoReplace();">Replace</a><br>
+		</div>
+
+	</body>
+</html>

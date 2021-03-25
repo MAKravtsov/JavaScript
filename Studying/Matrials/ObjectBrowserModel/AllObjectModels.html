@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+	<head>
+		<meta charset="utf-8">
+		<title>BOM (history, navigator, screen, document)</title>
+
+		<style>
+			div a {
+				display: block;
+				color: blue;}
+		</style>
+
+		<script>
+			function foo( ) {
+				alert( 'Ура! Заработало!' );
+			}
+
+			// Плохо!
+			/*
+			document.write();
+			*/
+
+			// Объект History 
+			/*
+			for(var p in history){
+				// p - ключ(свойство), 
+				// history[p] - значение св-ва
+				console.log(p + ' : ' + history[p]);
+			}
+			*/
+
+
+			// Объект Navigator
+			/*
+			for(var p in navigator){
+				// p - ключ(свойство), 
+				//navigator[p] - значение св-ва
+				console.log(p + ' : ' + navigator[p]);
+			}
+
+			// Данные компьютера
+			console.log('Ваш браузер: ' + 
+				navigator.userAgent);
+
+			// Вывести геопозицию
+			navigator.geolocation.getCurrentPosition(
+				function(x) {
+					console.log('Координаты:' + 
+						x.coords.latitude + ', ' +
+						x.coords.longitude);
+				}
+			)
+
+			// Вывод с какого устройства выполнен
+			// вход. Интересное использовани
+			// document.write. Там можно вставлять
+			// теги
+			var ptrn = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+			if ( ptrn.test( navigator.userAgent ) ) {
+				document.write( '<mark>Вы зашли с мобильного</mark><br>' );
+				document.write( '<b>Ваш браузер: ' + navigator.userAgent + '</b>' );
+			} else {
+				document.write( '<mark>Вы зашли с ПК</mark><br>' );
+				document.write( '<b>Ваш браузер: ' + navigator.userAgent + '</b>' );
+			}
+			*/
+
+
+			// Объект Screen
+			/*
+			for(var p in screen) {
+				console.log(p + ' : ' + screen[p]);
+			}
+			*/
+
+
+			// Объект Location
+			console.log('текущий адрес: ' + location.href);
+
+			// смена содержимого адресной строки
+			//location.href = 'http://mail.ru';
+
+
+			/* Объект Document */
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<h1>Объектная модель браузера 
+			(history, navigator, screen, 
+			document)</h1>
+
+		<div>
+			<p>Псевдопротокол javascript:<br>
+			<a href='javascript: foo();'>
+				Выполнить функцию foo()</a></p>
+		</div>
+
+		<!-- Просто ссылка -->
+		<a href="http://mail.ru">
+			LINK</a><br>
+
+		<!-- псевдопротокол mailto: -->
+		<a href="mailto: vasiay@mail.ru">
+			LINK-MAILTO</a><br>
+
+		<!-- псевдопротокол tel: -->
+		<a href="tel: +79017674475">
+			LINK-TEL</a><br>
+	</body>
+</html>

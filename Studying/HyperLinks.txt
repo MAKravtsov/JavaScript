@@ -1,0 +1,2 @@
+1. https://yandex.ru/dev/maps/jsbox/2.1/geolocation/
+    - хороший пример использования геолокации

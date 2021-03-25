@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+<meta charset='utf-8'>
+<title>Геометрия</title>
+<style>
+div {
+	width: 300px;
+	height: 1000px;
+	background: #99f;
+	margin: 100px 0 0 100px;
+	cursor: pointer;}
+</style>
+</head>
+
+<body>
+
+<div id = 'div' onclick='foo(this);'></div>
+
+<script>
+
+// Отслеживание события, когда мы добрались верхушкой
+// до дива
+onscroll = function() {
+	//console.log(pageYOffset);
+	//console.log(div.offsetTop);
+
+	if(pageYOffset > div.offsetTop) {
+		console.log('aaa');
+	}
+}
+
+function foo(div){
+
+	// координаты относительно окна
+	console.log(typeof div)
+	var d = div.getBoundingClientRect();
+	console.log(d);
+	
+	// координаты относительно документа
+	console.log(div.offsetLeft, div.offsetTop);
+	
+	
+	// прокручиваем д-т вниз на 50px
+	document.documentElement.scrollTop = 50;
+
+	// documentElement возвращает корневой элемент
+	
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+	<meta charset="utf-8">
+	<title>Открытие новых окон и запись содержания</title>
+	<style>
+		html{
+			background: #fff;
+			font: 16px calibri, sans-serif;
+			cursor: default;}
+
+		p	{
+			float: left;
+			margin: 0 8px 0 0;
+			padding: 20px;}
+
+		.p1	{background: #ccf;}
+		.p2	{background: #fcc;}
+		.p3	{background: #cfc;}
+	</style>
+
+	<script>
+		var name = 'Это я его открыло!';
+		var win; /* НОВОЕ ОКНО! */
+
+		function winOpen(){
+			/*	
+			1. Откройте новое окно со следующими параметрами:
+				ширина: 300, высота: 200
+				окно должно быть открыто строго по середине экрана
+			2. Передайте фокус созданному окну
+			*/
+
+			let w = 300, h = 200;
+			let l, t; // Координаты центра окна
+			l = Math.round( screen.width/2 - w/2 );
+			t = Math.round( screen.height/2 - h/2 );
+			
+			let target = 
+				`width=${w}, height=${h}, left=${l}, top=${t}`;
+			console.log(target);
+			win = open('', 'bobik', target);
+		}
+
+		function docWrite(){
+			if(!win) { return; }
+
+			let head = 
+				'<!doctype html><html><head><meta charset="utf-8"><title>Проба пера</title>';
+			win.document.write(head);
+
+			let styles = 
+				'<style>html{background:#369;color:#fff;font:16px calibri, sans-serif;}</style>';
+			win.document.write(styles);
+
+			let closeHead = 
+				'</head><body>'
+			win.document.write(closeHead);
+
+			let p = 
+				'<p>Текст параграфа</p>'
+			win.document.write(p);
+
+			let aler = 
+				'<script>alert(opener.name);<\/script>'
+			win.document.write(aler);
+
+			let closeHtml = 
+				'</body></html>';
+			win.document.write(closeHtml);
+
+			win.document.close();
+		
+			// окно на передний план
+			win.focus();
+		}
+
+		function winClose(){
+			if(win && !win.closed) {
+				win.close();
+				win = null;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<p class="p1"><a href="javascript: winOpen();">Открыть окно</a>
+	<p class="p3"><a href="javascript: docWrite();">Заполнить окно</a>
+	<p class="p2"><a href="javascript: winClose();">Закрыть окно</a>
+</body>
+</html>

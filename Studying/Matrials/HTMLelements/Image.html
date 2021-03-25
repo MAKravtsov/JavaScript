@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>Использование изображений</title>
+</head>
+
+<body>
+
+<h1>Использование изображений</h1>
+
+<img src="i/apple.jpg" alt='' width='300' height='300'><br>
+<a href='javascript: show();'>Показать картинку</a>
+
+<script>
+    // Чтобы картинка подгружалась при запуске
+    // страницы, а не при нажатии на кнопку
+	let img = new Image(300, 300);
+    img.src = 'https://s1.1zoom.ru/big3/3/Canada_Lake_Scenery_507880.jpg';
+
+    function show(){
+        document.images[0].src = img.src;
+    }
+
+</script>
+
+</body>
+</html>

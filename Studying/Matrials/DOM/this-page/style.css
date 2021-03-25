@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+*	{
+	margin: 0;
+	padding: 0;
+	font: 100% Arial, sans-serif;}
+	
+#wrapper {
+	width: 940px;
+	border: 5px solid #090;
+	margin: auto;}
+	
+header,
+section {
+	display: block; /* for old IE */}
+	
+header	{
+	height: 100px;
+	background: #fc6;}
+	
+#main_menu	{
+	display: table;
+	width: 100%;
+	list-style: none;}
+	
+#main_menu li	{
+	display: table-cell;}
+
+#main_menu li a	{
+	display: block;
+	padding: 10px;
+	text-align: center;	
+	background: #999;
+	color: #fff;
+	transition: .6s background ease;}
+	
+#main_menu li a:hover,
+#main_menu li a.tut	{	
+	background: #555;}
+	
+section {
+	}
+	
+h1	{
+	padding: 10px 0;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.2em;}
+	
+section p	{
+	text-indent: 40px;
+	padding: 0 10px 8px 10px;
+	text-align: justify;}

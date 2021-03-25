@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang='zxx'>
+<head>
+<meta charset='utf-8'>
+<title>Выпадающее меню</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font: 16px Arial, sans-serif;}
+
+.hamburger-icon_image-top {
+	width: 50px;
+	height: 50px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	background: url(images/hamburger-icon-50x100px.png) left top;
+	user-select: none;}
+
+/* нижняя часть картинки */	
+.hamburger-icon_image-bottom {
+	background-position: left bottom;}
+
+.my-menu {
+	width: 250px;
+	display: none;
+	padding: 10px;
+	list-style: none;
+	border: 2px solid #443133;
+	border-radius: 8px;}
+
+.my-menu a {
+	display: block;
+	padding: 6px 8px;
+	margin-bottom: 8px;
+	color: #fff;	
+	background: #7f6d6f;
+	border: 2px solid #443133;
+	border-radius: 8px;}
+
+.my-menu li:last-child a {
+	margin-bottom: 0;}
+
+/* отображаем меню */
+.show {
+	display: block;}
+</style>
+</head>
+
+<body>
+
+<h2>Выпадающее меню</h2>
+
+<p>Нажмите на кнопку, чтобы открыть выпадающее меню.</p>
+
+<div id='hamburger' class='hamburger-icon_image-top'></div>
+
+<ul id="menu" class="my-menu">
+	<li><a href="http://mail.ru">mail.ru</a>
+	<li><a href="http://ya.ru">ya.ru</a>
+	<li><a href="http://google.ru">google.ru</a>
+</ul>
+
+<script>
+// ссылка на кнопку по id
+var hamburger = document.getElementById('hamburger');
+console.log(hamburger);
+
+// ссылка на меню по id
+var menu = document.getElementById('menu');
+console.log(menu);
+
+// (переключатель) если класс у элемента отсутствует - добавляет, иначе - убирает
+hamburger.onclick = function(){
+	hamburger.classList.toggle('hamburger-icon_image-bottom');
+	menu.classList.toggle('show');
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+<head>
+  <meta charset="utf-8">
+  <title>Таймеры. Пример использования - 2</title>
+  <style>
+    #d	{
+      width: 100px; 
+      height: 100px; 
+      background: #bbb;
+      border: 2px solid #555;
+      border-radius: 50%;
+      cursor: pointer;}
+  </style>
+</head>
+
+<body>
+
+  <h1>Наведи мышку на круг и останови его!</h1> 
+
+  <div id="d">
+  </div>
+
+  <script>
+    var action = 0;
+    var div = document.getElementById('d');
+    var go = true; 
+    var timer;
+
+    function move() {
+      //if(go){
+        action += 5;
+        div.style.marginLeft = action + 'px';
+        timer = setTimeout(move, 1000);
+      //}
+    }
+
+    // событие onmouseover срабатывает, когда курсор мыши наводится на элемент
+    div.onmouseover = function(){
+      go = false;
+      clearTimeout(timer);
+    }; 
+
+    // событие onmouseout срабатывает, когда курсор мыши выходит за пределы элемента
+    div.onmouseout = function(){
+      go = true;
+      move();
+    };
+
+    move();
+  </script>
+</body>
+</html>
