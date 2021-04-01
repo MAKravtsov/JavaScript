@@ -4,33 +4,34 @@
 <meta charset='utf-8'>
 <title>Получение фактических (вычисляемых) свойств CSS</title>
 <style>
-/*
+
 #test {
 	padding-left: 20%;
 	background: maroon;
+	/*display: none;*/
 }
-*/
+
 </style>
 </head>
 
 <body>
 
-<h2 id='test' style='display: none; padding-left: 100px;'>Test H2</h2>
+<h2 id='test'>Test H2</h2>
 
 <script>
 
 var elem = document.getElementById( 'test' );
 
-/*
 var x = window.getComputedStyle( elem, null ).getPropertyValue( 'display' );
-var y = window.getComputedStyle( elem, null ).getPropertyValue( 'padding-left' );
+var y = window.getComputedStyle( elem, null ).getPropertyValue( 'padding' );
 var z = window.getComputedStyle( elem, null ).getPropertyValue( 'margin-top' );
 console.log( x, y, z ); // none 100px 19.92px
-*/
 
+/*
 console.log( 'Значение св-ва display: ' +  elem.style.display); // none
 console.log( 'Значение св-ва padding-left: ' +  elem.style.paddingLeft); // 100px
 console.log( 'Значение св-ва margin-top: ' +  elem.style.marginTop); //
+*/
 
 </script>
 

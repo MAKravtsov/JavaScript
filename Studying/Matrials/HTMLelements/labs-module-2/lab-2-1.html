@@ -29,6 +29,13 @@ div.button {
 - данные не отправлять!
 */
 
+// Так как документ еще не успел загрузиться
+//*************** ВАЖНО!!!!********
+function foo() {
+	myForm.onsubmit = checkForm;
+}
+document.addEventListener('DOMContentLoaded', foo)
+
 function checkForm(){
 	let form = document.getElementById('myForm');
 	let inputs = form.getElementsByTagName('input');
@@ -46,10 +53,13 @@ function checkForm(){
 		}
 	}
 	
+	if(!goodSubmit) return false;
+	/*
 	if(goodSubmit) {
 		form.submit();
 		alert('Данные успешно отправлены');
 	} 
+	*/
 
 }
 
@@ -59,7 +69,8 @@ function checkForm(){
 <body>
 <h1>Проверка формы перед отправкой</h1>
 
-<form id="myForm" name="myForm" action="http://ya.ru/yandsearch">
+<form id="myForm" name="myForm" 
+	action="http://ya.ru/yandsearch">
 
 <fieldset>
 	<legend>Форма</legend>
@@ -84,7 +95,10 @@ function checkForm(){
 		<input type="text" name="text5" id="txt5">
 	</div>
 	<div class="button">
+		<!-- 
 		<a href="javascript: checkForm();">Передать форму</a>
+	 	-->
+		 <input type="submit" value="Отправить" name="" id="">
 	</div>
 </fieldset>
 

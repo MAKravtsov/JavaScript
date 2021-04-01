@@ -9,7 +9,7 @@ ul.expandable li {
 }
 
 li ul.expandable {
-	display: block; /* выставить none, но первоначально block (показываю) */
+	display: none; /* выставить none, но первоначально block (показываю) */
 }
 </style>
 <script>
@@ -18,10 +18,22 @@ li ul.expandable {
 function setPlusIcon(){
 
 	// 1. Установите для элементов li значок [+], если этот элемент имеет вложенный список
-	
+	let lis = document.getElementsByTagName('li');
+	for(let i = 0; i < lis.length; i++) {
+		let li = lis[i];
+		let ul = li.querySelectorAll('ul');
+		if(ul.length !== 0) {
+			li.style.listStyleImage = 'url(img/plus.gif)';
+		}
+	}
+	console.log(lis);
 	
 	// 2. Назначьте ф-цию aClick в качестве обработчика события onclick для всех ссылок
-	
+	let a = document.querySelectorAll('a');
+	for(let i = 0; i < a.length; i++) {
+		a[i].addEventListener('click', aClick);
+	}
+	console.log(a);
 	
 };
 
@@ -33,23 +45,37 @@ document.addEventListener("DOMContentLoaded", setPlusIcon);
 function aClick(e){
 
 	// 1. Получите объект - ссылку, по которой был сделан щелчок
-	
+	let target = e.target;
 	
 	// 2. Найдите родительский li
-	
+	let li = target.parentNode;
 	
 	// 3. Найдите вложенный список
-	
+	let uls = li.querySelectorAll('ul');
 	
 	// 4. Если вложенных списков нет - разрешите переход по ссылке
-	
+	if(uls.length === 0) {
+		return true;
+	}
 	
 	// 5. Назначьте вложенному списку нужные свойства и поменяйте иконку
-	
+	// Интересная штука === '' - значение по  дефолту, то есть в css
+	if(uls[0].style.display === '') {
+		uls[0].style.display = 'block';
+		li.style.listStyleImage = 'url(img/minus.gif)'
+	} else {
+		uls[0].style.display = '';
+		li.style.listStyleImage = 'url(img/plus.gif)'
+
+		let inputUls = uls[0].querySelectorAll('ul');
+		for(let i = 0; i < inputUls.length; i++) {
+			inputUls[i].style.display = '';
+			inputUls[i].parentNode.style.listStyleImage = 'url(img/plus.gif)';
+		}
+	}
 	
 	// 6. Запретите переход по ссылке
-	
-	
+	return false;
 };
 
 </script>
