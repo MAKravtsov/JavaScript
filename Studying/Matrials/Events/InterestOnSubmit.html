@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>Событие onsubmit</title>
+<style>
+*	{
+	font-size: 1rem;
+	font-family: Arial, sans-serif;}
+
+h1	{
+	padding: 10px;
+	font-size: 1.4rem;
+	background: #9f9;
+	text-align: center;
+	margin-bottom: 10px;}
+
+form {
+	float: left;}
+
+fieldset {
+	padding: 10px;}
+	
+input[type='text'] {
+	margin-bottom: 10px;
+	width: 190px;
+	padding: 5px;}
+</style>
+
+<script>
+function foo() {
+
+ 	//alert(document.forms[0].text.value); 		// зачитываем данные
+	
+ 	if(document.forms[0].text.value == '') { 	// если пустая строка
+ 	 	alert('Данные НЕ отправляются');
+ 	 	return false;
+ 	} else 	alert('Данные отправляются');
+
+}
+</script>
+
+<h1>Проверка данных формы перед отправкой</h1>
+
+<!-- ВАЖНО! return должен быть, иначе отработает неправильно -->
+<form action='http://ya.ru/yandsearch' onsubmit='return foo();'>
+ 	<input type='text' name='text'> Ваше имя<br>
+ 	<input type='submit' value='Поехали'>
+</form>
+
+</body>
+</html>

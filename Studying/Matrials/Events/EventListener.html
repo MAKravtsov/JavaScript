@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset="utf-8">
+<title>Регистрация событий</title>
+<style>
+*	{
+	font-size: 1rem;
+	font-family: Arial, sans-serif;}
+	
+h1	{
+	padding: 10px;
+	background: #9f9;
+	font-size: 1.4rem;
+	text-align: center;
+	margin-bottom: 10px;}	
+</style>
+</head>
+
+<body>
+
+<h1 id='h1'>Регистрация событий</h1>
+
+<script>
+
+	function f1() { 
+		alert(1);
+	}
+
+	function f2() { 
+		alert(2);
+	}
+
+	/*
+	h1.onclick = function() {
+		f1();
+		f2();
+	};
+	*/
+
+	h1.addEventListener('click', f1);
+	h1.addEventListener('click', f2);
+
+	/*
+	for(var p in h1) {
+		console.log(p + ':' + h1[p]);
+	}
+	*/
+
+	h1.removeEventListener('click', f2);
+
+</script>	 
+
+</body>
+</html>

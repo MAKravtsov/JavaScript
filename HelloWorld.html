@@ -177,6 +177,33 @@
         }
         document.writeln(testRegExp("Extremitiyasiifbrieakfaistagreement", "i"));
 
+        let ARR = new Map();
+        ARR.set(1, [1,2]);
+        ARR.set(2, [3,4])
+        function trainFind(map) {
+            for(let [key, value] of map) {
+                value = 7;
+                map.set(key, value);
+            }
+        }
+        trainFind(ARR);
+        console.log(ARR);
+
+        function mapFilter(map, func) {
+            let toReturn = [];
+            for(let [key, value] of map) {
+                if(func(value)) {
+                    toReturn.push(value);
+                }
+            }
+            return toReturn;
+        }
+        let m = new Map([[1,{a:1, b:2}], [2,{a:3, b:4}]])
+        let i = 1;
+        let a1 = mapFilter(m, y => y.b > i);
+        console.log(a1);
+
+
     </script>
  </head>
 

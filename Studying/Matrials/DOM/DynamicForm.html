@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+<meta charset='utf-8'>
+<title>Создание формы методами DOM</title>
+<style>
+*	{
+	font-size: 1rem; 
+	font-family: Arial, sans-serif;}
+
+h1	{
+	padding: 10px;
+	font-size: 1.4rem;
+	background: #9f9;
+	text-align: center;
+	margin-bottom: 10px;}
+
+form {
+	float: left;}
+
+input[type='text'] {
+	margin-bottom: 10px;
+	width: 190px;
+	padding: 5px;}
+</style>
+</head>
+
+<body>
+
+<h1 id='h1'>Создание формы методами DOM (click me)</h1>
+
+<script>
+function cL(data) {
+	return console.log(data);}
+
+// 1. Получаю ссылку на заголовок H1
+var h1 = document.querySelector('body #h1');
+cL(h1.textContent);
+
+var form = null;
+// 2. Создаю ф-цию создающую ФОРМУ и вызываю ее
+h1.onclick = function(){
+	// 3. Запрет повторного вызова ф-ции
+	if(form) {
+		document.body.removeChild(form);
+		form = null;
+		return;
+	}
+	
+	// 4. Создаю форму
+	form = document.createElement('form');
+
+	// 5. Добавляю атрибуты форме
+	form.method = 'get';
+	form.action = 'http://ya.ru/yandsearch';
+
+	// 10. Создаю элемент fieldset
+	let fieldSet = document.createElement('fieldSet');
+	
+	// 11. Создаю элемент legend и наполняю его
+	let legend = document.createElement('legend');
+	legend.innerHTML = 'My form';
+	fieldSet.appendChild(legend);
+
+	// 6. Создаю текстовое поле с атрибутами
+	let input = document.createElement('input');
+	input.type = 'text';
+	input.name = 'text';
+	input.placeholder = 'Type text';
+	fieldSet.appendChild(input);
+		
+	// 7. создаю текст подсказки после поля
+	let txt = document.createTextNode(' Name');
+	fieldSet.appendChild(txt);
+	
+	// 8. Создаю элемент <br>
+	let br = document.createElement('br');
+	fieldSet.appendChild(br);
+
+	// 9. Создаю кнопку отправки запроса
+	let submit = document.createElement('input');
+	submit.type = 'submit';
+	submit.value = 'Go';
+	fieldSet.appendChild(submit);
+
+	//13. Добавляю fieldset в форму
+	form.appendChild(fieldSet);
+	
+	//14. Добавляю форму в д-т
+	document.body.appendChild(form);
+};
+</script>
+
+</body>
+</html>

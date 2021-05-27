@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang='ru'>
+<head>
+<title>Работа с атрибутами</title>
+<meta charset="utf-8">
+
+<style>
+h1 	{
+	padding: 10px;
+	background: #9f9;}
+
+img	{
+	vertical-align: top;
+	margin-bottom: 1em;}
+
+h2	{
+	padding: 10px;
+	background: #99f}
+
+#border	{
+	border: 3px solid #fc0;}
+
+.red {
+	color: red;}
+
+.underline {
+	text-decoration: underline;}
+</style>
+
+</head>
+
+<body>
+
+<h1 data-header='Назв. страницы'>Заголовок H1</h1>
+
+<img src='../img/img-3.jpg' alt='Пальма' width='300' height='200' title='Привет'>
+	
+<h2>Первый заголовок H2</h2>
+
+<h2 class='red'>Второй заголовок H2</h2>
+	
+<script>
+function cL(data){
+	return console.log(data);}
+
+//1. Проверьте наличие атрибута alt тега <img>
+var img = document.images[0];
+var hasAlt = img.hasAttribute('alt');
+cL(hasAlt);
+
+//2. Получите значение атрибута alt тега <img>
+var alt = img.getAttribute('alt');
+cL(alt);
+
+//3. Установите новое значение атрибута alt тега <img>
+img.setAttribute('alt', 'Новая пальма');
+img.setAttribute('checked', '');
+cL(img);
+
+//4. Удалите атрибут title='Привет' тега <img>
+img.removeAttribute('title');
+
+//5. Присвойте атрибут id='border' первому заголовку h2
+let firstH2 = document.querySelector('h2');
+firstH2.setAttribute('id', 'border');
+firstH2.id = 'border';
+cL(firstH2);
+
+//6. Присвойте атрибут class='underline' второму заголовку, при этом существующий атрибут class='red' нужно сохранить
+var secondH2 = document.querySelector('.red');
+secondH2.classList.add('underline');
+cL(secondH2);
+
+//7. Получите значение атрибута data-header элемента h1
+var dataset = document.querySelector('h1').dataset;
+cL(dataset);
+
+
+
+</script>
+
+</body>
+</html>
