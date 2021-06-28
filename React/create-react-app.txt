@@ -1,0 +1,12 @@
+// если необходимо установить creat-react-app
+npm config set prefix /usr/local
+npm install -g creat-react-app
+
+// создать приложение react
+npx create-react-app react-theory
+
+// Перейти в папку с приложением react
+cd react-app
+
+// запустить приложение react
+npm run start
