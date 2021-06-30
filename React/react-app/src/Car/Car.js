@@ -30,6 +30,10 @@ const car = (props) => (
             <strong>{props.year}</strong>
         </p>
         { props.children }
+        <input type="text" onChange={props.onChangeName} value={props.name}></input>
+        <div>
+            <button onClick={props.onDelete}>Delete</button>
+        </div>
     </div>
 )
 
