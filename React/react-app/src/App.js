@@ -111,17 +111,26 @@ class App extends Component {
         <div className="App" style={divStyle}>
           <h1>{pageTitle}</h1>
         </div>
+        <div style={{
+          width: 100,
+          margin: 'auto'
+        }}>
+          <button onClick={this.toggleCarsHandler}>{toggleCarsButtonName()}</button>
+        </div>
         {/*можем вставлять просто JS код (аналог ng-repeat в Angular)
           ЗАПРЕЩЕНО: for, if и тд*/}
-        { 
-          /* 1ый способ 
-            Тернарный оператор: в JSX можно его использовать*/
+        <div style={{
+          width: 400,
+          margin: 'auto',
+          paddingTop: '20px'
+        }}>
+          { 
+            /* 1ый способ 
+              Тернарный оператор: в JSX можно его использовать*/
 
-          /* 2ой способ */
-          cars()
-        }
-        <div>
-          <button onClick={this.toggleCarsHandler}>{toggleCarsButtonName()}</button>
+            /* 2ой способ */
+            cars()
+          }
         </div>
         <p style={{fontSize: '40px'}}>Hello</p>
         <input type="text" onChange={this.handleInput}></input>
