@@ -10,3 +10,6 @@ cd react-app
 
 // запустить приложение react
 npm run start
+
+// работа с файлами .scss
+npm install node-sass

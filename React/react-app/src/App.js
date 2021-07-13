@@ -1,18 +1,33 @@
 import './App.css';
 import React, { Component } from 'react';
 import Car from './Car/Car.js';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Counter from './Counter/Counter'
+
+// Контекст API
+export const ClickedContext = React.createContext(false);
 
 class App extends Component {
 
-  // Состояние
-  state = {
-    cars: [
-      {name: 'Ford', yaer: 2018},
-      {name: 'Audi', yaer: 2016},
-      {name: 'Mazda', yaer: 2010}
-    ],
-    pageTitle: 'React components' ,
-    showCars: false
+  // Консттруктор
+  constructor(props) {
+    console.log('constructor');
+
+    // Метод класса компонент
+    super(props);
+
+    // Состояние
+    this.state = {
+      cars: [
+        {name: 'Ford', year: 2018},
+        {name: 'Audi', year: 2016},
+        {name: 'Mazda', year: 2010}
+      ],
+      /*Передача параметров из index */
+      pageTitle: 'React Components',
+      showCars: false,
+      clicked: false
+    };
   }
 
   // Изменение наименования заголовка
@@ -64,23 +79,35 @@ class App extends Component {
     })
   }
 
+  // Метод перед render
+  componentWillMount() {
+    console.log('App componentWillMount');
+  }
+
+  // Метод после render
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
+
   render() {
-    const pageTitle = this.state.pageTitle;
+    console.log('App render');
 
     const cars = () => {
       if(this.state.showCars) {
         // Итерирование
         return this.state.cars.map((car, index) => {
           return (
-            <Car 
-              /* специальный элемент в JSX для списков, иначе будет warning */
-              key={index}
-              name={car.name} 
-              year={car.year}
-              onChangeName={(event) => this.onChangeName(event.target.value, index)}
-              onDelete={this.deleteHandler.bind(this, car.name)}>
-              <p style={{color: setBg()}}>Color</p>
-            </Car>
+             /* специальный элемент в JSX для списков, иначе будет warning */
+            <ErrorBoundary key={index}>
+              <Car 
+                name={car.name} 
+                year={car.year}
+                index={index}
+                onChangeName={(event) => this.onChangeName(event.target.value, index)}
+                onDelete={this.deleteHandler.bind(this, car.name)}>
+                <p style={{color: setBg()}}>Color</p>
+              </Car>
+            </ErrorBoundary>
           )
         })
       } else {
@@ -109,14 +136,23 @@ class App extends Component {
     return (
       <div>
         <div className="App" style={divStyle}>
-          <h1>{pageTitle}</h1>
+          <h1>{this.props.title}</h1>
         </div>
         <div style={{
           width: 100,
           margin: 'auto'
         }}>
-          <button onClick={this.toggleCarsHandler}>{toggleCarsButtonName()}</button>
+          {/* Контекст API (передает)*/}
+          <ClickedContext.Provider value={this.state.clicked}>
+            <Counter />
+          </ClickedContext.Provider>
+          <div><button onClick={this.toggleCarsHandler}>{toggleCarsButtonName()}</button></div>
         </div>
+
+        <div style={{width: '50px', margin: 'auto'}}>
+          <button onClick={() => this.setState({clicked:!this.state.clicked})}>Change clicked</button>
+        </div>
+
         {/*можем вставлять просто JS код (аналог ng-repeat в Angular)
           ЗАПРЕЩЕНО: for, if и тд*/}
         <div style={{
