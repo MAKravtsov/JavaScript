@@ -134,7 +134,7 @@ class App extends Component {
     // Только 1 элемент, который оборачивает все!
     // !!! this.changeTitleHandler.bind - БЫСТРЕЕ, чем () => this.changeTitleHandler
     return (
-      <div>
+      <div style={{background: 'blue'}}>
         <div className="App" style={divStyle}>
           <h1>{this.props.title}</h1>
         </div>

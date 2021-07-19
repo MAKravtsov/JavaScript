@@ -5,6 +5,12 @@ npm install -g creat-react-app
 // создать приложение react
 npx create-react-app react-theory
 
+// для исползование css модулей
+npm eject
+
+// возобновление всех зависимостей
+npm install
+
 // Перейти в папку с приложением react
 cd react-app
 
