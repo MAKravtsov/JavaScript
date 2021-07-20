@@ -2,6 +2,9 @@ import React from 'react';
 import Button from '../UI/Button/Button';
 import classes from './FinishedQuiz.css';
 
+// Ссылка в виду кнопки
+import {Link} from 'react-router-dom'
+
 // Вид после окончания тестирования (результаты, возможность повторить)
 const FinishedQuiz = (props) => {
 
@@ -40,9 +43,13 @@ const FinishedQuiz = (props) => {
                     onClick={props.onRetry} 
                     type={'primary'}
                     disabled={false}>Повторить</Button>
-                <Button 
-                    type={'success'}
-                    disabled={false}>Перейти в список тестов</Button>
+                <Link to={"/QuizList"}>
+                        <Button
+                            type={'success'}
+                            disabled={false}>
+                            Перейти в список тестов
+                        </Button>
+                    </Link>
             </div>
         </div>
     )
