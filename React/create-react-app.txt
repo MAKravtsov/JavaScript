@@ -22,3 +22,6 @@ npm install node-sass
 
 // установка роутинга
 npm add react-router-dom
+
+// установка плагина для валидации is Js
+npm add is_js
