@@ -25,3 +25,15 @@ npm add react-router-dom
 
 // установка плагина для валидации is Js
 npm add is_js
+
+// установка библиотеки работы с сервером
+npm add axios
+
+// сайт с лоадерами
+https://loading.io/css/
+
+// БД от Google
+https://console.firebase.google.com/
+
+// регистрация от firebase
+https://firebase.google.com/docs/reference/rest/auth
