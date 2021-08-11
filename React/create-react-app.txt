@@ -29,6 +29,12 @@ npm add is_js
 // установка библиотеки работы с сервером
 npm add axios
 
+// установка redux
+npm add redux
+
+// библиотека взаимодействия react и redux
+npm add react-redux
+
 // сайт с лоадерами
 https://loading.io/css/
 
