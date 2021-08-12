@@ -35,6 +35,9 @@ npm add redux
 // библиотека взаимодействия react и redux
 npm add react-redux
 
+// Библиотека для работы с асинхронным изменением store
+npm add redux-thunk
+
 // сайт с лоадерами
 https://loading.io/css/
 
