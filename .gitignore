@@ -5,3 +5,8 @@ packages
 .user
 *.user
 *.exe
+.idea
+.DS_Store
+node_modules
+.cache
+dist
